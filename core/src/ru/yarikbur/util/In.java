@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class In {
 	@SuppressWarnings({ "resource" })
-	public int getInt(){
+	public int getInt(String str){
 		Scanner input = new Scanner(System.in);
-		System.out.print("Input Int: ");
+		System.out.print(str);
 		Integer in = Integer.parseInt(input.nextLine());
 		return in;
 	}
 	
 	@SuppressWarnings({ "resource" })
-	public String getString(){
+	public String getString(String str){
 		Scanner input = new Scanner(System.in);
-		System.out.print("Input String: ");
+		System.out.print(str);
 		String in = input.nextLine();
 		return in;
 	}

@@ -30,7 +30,7 @@ public class Contact implements ContactListener {
 		Gdx.app.postRunnable(new Runnable(){
 			@Override
 			public void run() {
-				try{ if(Destroy != null & Destroy.getFixtureList().get(0).getUserData().equals("Brick")) world.destroyBody(Destroy); Destroy=null; speedP+=0.5; }
+				try{ if(Destroy != null & Destroy.getFixtureList().get(0).getUserData().equals("Brick")) world.destroyBody(Destroy); Destroy=null; speedP+=0.75; }
 				catch (java.lang.NullPointerException e) {}
 			}
 		});
