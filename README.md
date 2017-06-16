@@ -1,2 +1,2 @@
-# Arkanoid ©YarikBur
+# Arkanoid Â©YarikBur
 Written in Java(libGDX+Box2D)
