@@ -48,7 +48,6 @@ public class MyGame extends ApplicationAdapter implements Screen {
 	
 	Body Ball;
 	Body Platform;
-	Body WallL, WallR, WallU;
 	Body Destroy=null;
 	
 	float speed=0, key=0, speedP=0;
@@ -86,12 +85,12 @@ public class MyGame extends ApplicationAdapter implements Screen {
 		Platform = createObj(BodyDef.BodyType.StaticBody, Platfom, "Platform", Platfom.getX(), Platfom.getY());
 		Platform.getFixtureList().get(0).setUserData("Platform");
 		
-		WallR = createWall(Gdx.graphics.getWidth()/PTM, Gdx.graphics.getHeight()/PTM+280/PTM, "Right");
-		WallR.getFixtureList().get(0).setUserData("Right");
-		WallL = createWall(Gdx.graphics.getWidth()/PTM, Gdx.graphics.getHeight()/PTM-359/PTM, "Left");
-		WallL.getFixtureList().get(0).setUserData("Left");
-		WallU = createWall(Gdx.graphics.getWidth()/PTM-280/PTM, Gdx.graphics.getHeight()/PTM+80/PTM, "Up");
-		WallU.getFixtureList().get(0).setUserData("Up");
+		Body Wall = createWall(Gdx.graphics.getWidth()/PTM, Gdx.graphics.getHeight()/PTM+280/PTM, "Right");
+		Wall.getFixtureList().get(0).setUserData("Right");
+		Wall = createWall(Gdx.graphics.getWidth()/PTM, Gdx.graphics.getHeight()/PTM-359/PTM, "Left");
+		Wall.getFixtureList().get(0).setUserData("Left");
+		Wall = createWall(Gdx.graphics.getWidth()/PTM-280/PTM, Gdx.graphics.getHeight()/PTM+80/PTM, "Up");
+		Wall.getFixtureList().get(0).setUserData("Up");
 		
 		for(float y=Gdx.graphics.getHeight()-5-brick.getHeight();y>=brick.getHeight()*7+5*6;y-=brick.getHeight()+5)for(int i=18;i<=585;i+=brick.getWidth()){
 			Body Brick = createObj(BodyDef.BodyType.StaticBody, new Sprite(Bricks.get("brick0")), "Brick", i, y);
@@ -160,8 +159,6 @@ public class MyGame extends ApplicationAdapter implements Screen {
 	}
 	
 	private void updatePosition(){
-		//if(con) Ball.setLinearVelocity( , 3);
-		
 		pos(Ball, Ball_small);
 		pos(Platform, Platfom);
 	}
@@ -169,7 +166,7 @@ public class MyGame extends ApplicationAdapter implements Screen {
 	private void pos(Body body, Sprite sprite){
 		sprite.setPosition((body.getPosition().x*PTM)-sprite.getWidth()/2, 
 				(body.getPosition().y*PTM)-sprite.getHeight()/2);
-		sprite.setRotation(body.getAngle());
+		sprite.setRotation(body.getAngle()*PTM);
 	}
 	
 	private Body createWall(float w, float h, String str){
