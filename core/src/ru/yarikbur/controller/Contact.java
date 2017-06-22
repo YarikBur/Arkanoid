@@ -14,7 +14,7 @@ public class Contact implements ContactListener {
 	World world;
 	Body Destroy;
 	boolean con=false, one=true;
-	float speed=0, speedP=4;
+	float speed=0, speedP=6;
 	
 	public Contact(World world){
 		super();
