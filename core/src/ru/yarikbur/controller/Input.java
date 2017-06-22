@@ -3,9 +3,7 @@ package ru.yarikbur.controller;
 import com.badlogic.gdx.InputProcessor;
 
 public class Input implements InputProcessor {
-	public Input(){
-		super();
-	}
+	public Input(){ super(); }
 	
 	boolean pressedKey=false, debug=true;
 	float key=0;
